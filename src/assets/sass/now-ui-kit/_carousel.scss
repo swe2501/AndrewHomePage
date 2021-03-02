@@ -1,0 +1,57 @@
+// display flex was causing errors
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active{
+    display: block;
+}
+
+.carousel{
+    .carousel-inner{
+        box-shadow: $box-shadow-raised;
+    }
+    .now-ui-icons{
+        font-size: 2em;
+    }
+}
+ngb-carousel{
+  &:focus{
+    outline: none;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon{
+    width: 12px;
+    height: 12px;
+  }
+}
+.carousel-item {
+  display: block !important;
+  z-index: 1;
+  position: absolute;
+  opacity: 0.3;
+  transition: opacity 1.5s ease-in-out, visibility 1s;
+  visibility: hidden;
+}
+.carousel-item.active {
+  position: relative;
+  opacity: 1;        
+  transition: opacity 1.5s ease-in-out, visibility 1.3s;
+  visibility: visible;
+  
+}
+// .carousel-item {
+//   /* Force to always be block */
+//   display: block !important;
+//   z-index: 1;
+//   position: absolute;
+//   transform: translateX(100%);
+//   opacity: 0;
+//   transition:all  0.8s;
+//   visibility: hidden;
+// }
+
+// .carousel-item.active {
+//   position: relative;
+//   transform: translateX(0);
+//   visibility: visible ;
+//   opacity: 1;
+// }
