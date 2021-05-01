@@ -7,6 +7,7 @@
     ></div>
     <div class="container">
       <div class="content-center brand">
+        <img src="assets/img/AndrewRangerlogo.png" id = "logo" (load) = "startTimmer()" style="width: 1000px;">
         <h1 class="h1-seo">Andrew Rangers</h1>
         <h3>We Want Your For Our Rangers</h3>
       </div>
@@ -134,7 +135,7 @@
               <div class="col-8">
                 <ngb-carousel #carousel *ngIf="images" wrap="true"  (slide)=onSlide($event) interval="2000" opacity = "1">
                   <ng-template ngbSlide id="id1">
-                    <div  class="picsum-img-wrapper" [@simpleTranslation]="slideControl[0]">
+                    <div  class="picsum-img-wrapper" [@simpleTranslation]>
                       <img [src]="images[0]" alt="Random first slide">
                     <div class="carousel-caption" >
                       <h3>First slide label</h3>

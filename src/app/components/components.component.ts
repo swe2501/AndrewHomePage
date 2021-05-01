@@ -21,25 +21,42 @@ import * as Rellax from 'rellax';
     `],
     animations: [
         trigger('simpleTranslation', [
-        state('outright', style({ transform: `translateX(100%)` })),
-        state('outleft', style({ transform: `translateX(-100%)` })),
-        state('inleft', style({ transform: `translateX(0)` })),
-        state('inright', style({ transform: `translateX(0)` })),
-        transition('*=>inleft',[
-            style({transform:`translateX(-100%)`}),
-            animate('1000ms ease-in')
+            state('outright', style({ transform: `translateX(100%)` })),
+            state('outleft', style({ transform: `translateX(-100%)` })),
+            state('inleft', style({ transform: `translateX(0)` })),
+            state('inright', style({ transform: `translateX(0)` })),
+            transition('*=>inleft',[
+                style({transform:`translateX(-100%)`}),
+                animate('1000ms ease-in')
+            ]),
+            transition('*=>inright',[
+                style({transform:`translateX(100%)`}),
+                animate('1000ms ease-in')
+            ]),
+            transition('*=>outright', [
+                animate('1000ms ease-in', style({ transform: `translateX(-100%)` }))
+            ]),
+            transition('*=>outleft', [
+                animate('1000ms ease-in',style({ transform: `translateX(100%)` }))
+            ]),
         ]),
-        transition('*=>inright',[
-            style({transform:`translateX(100%)`}),
-            animate('1000ms ease-in')
-        ]),
-        transition('*=>outright', [
-            animate('1000ms ease-in', style({ transform: `translateX(-100%)` }))
-        ]),
-        transition('*=>outleft', [
-            animate('1000ms ease-in',style({ transform: `translateX(100%)` }))
-        ]),
-        ])
+
+        // trigger('logoTranslation', [
+        //     state('open', style({ 
+        //         height:'2000px',
+        //         opacity:1
+        //     })),
+        //     state('closed', style({ 
+        //         height:'1000px',
+        //         opacity:1
+        //     })),
+        //     transition('open => closed', [
+        //         animate('1s')
+        //     ]),
+        //       transition('closed => open', [
+        //         animate('1s')
+        //     ]),
+        // ]),
     ]
 })
 
@@ -52,6 +69,12 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     page2 = 3;
     focus;
     focus2;
+
+    isOpen = true;
+    interval;
+    toggle(){
+        this.isOpen = !this.isOpen;
+    }
 
     date: {year: number, month: number};
     model: NgbDateStruct;
@@ -92,11 +115,26 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         navbar.classList.add('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('index-page');
+
+
     }
     ngOnDestroy(){
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('index-page');
+    }
+
+    startTimmer(){
+        console.log('進入',document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')));
+        this.interval = setInterval(() => {
+            if(Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p'))) > 200) {
+                console.log('進到!');
+                document.getElementById('logo').style.width = (Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')))-5).toString()+'px';
+            } 
+            // else {
+            //   this.timeLeft = 60;
+            // }
+        },10)
     }
 }
