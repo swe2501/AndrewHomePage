@@ -7,9 +7,15 @@ import {
     style,
     animate,
     transition,
+    group,
+    animateChild
     // ...
   } from '@angular/animations';
+import { Logo } from './Logo.service';
 import * as Rellax from 'rellax';
+import { Input } from '@angular/core';
+import { translate } from '@angular/localize/src/utils';
+import { LogoText } from './logoText.service';
 
 @Component({
     selector: 'ngbd-carousel-basic',
@@ -20,43 +26,23 @@ import * as Rellax from 'rellax';
     }
     `],
     animations: [
-        trigger('simpleTranslation', [
-            state('outright', style({ transform: `translateX(100%)` })),
-            state('outleft', style({ transform: `translateX(-100%)` })),
-            state('inleft', style({ transform: `translateX(0)` })),
-            state('inright', style({ transform: `translateX(0)` })),
-            transition('*=>inleft',[
-                style({transform:`translateX(-100%)`}),
-                animate('1000ms ease-in')
-            ]),
-            transition('*=>inright',[
-                style({transform:`translateX(100%)`}),
-                animate('1000ms ease-in')
-            ]),
-            transition('*=>outright', [
-                animate('1000ms ease-in', style({ transform: `translateX(-100%)` }))
-            ]),
-            transition('*=>outleft', [
-                animate('1000ms ease-in',style({ transform: `translateX(100%)` }))
-            ]),
+        trigger('loadLogo', [
+            state('startload', style({ height:'120px', width:'120px'})),
+              transition('* => startload', [
+                style({height:'700px',width:'700px'}),
+                animate('2s ease', style({
+                  width:'120px',
+                  height:'120px'
+                }))
+              ])
         ]),
-
-        // trigger('logoTranslation', [
-        //     state('open', style({ 
-        //         height:'2000px',
-        //         opacity:1
-        //     })),
-        //     state('closed', style({ 
-        //         height:'1000px',
-        //         opacity:1
-        //     })),
-        //     transition('open => closed', [
-        //         animate('1s')
-        //     ]),
-        //       transition('closed => open', [
-        //         animate('1s')
-        //     ]),
-        // ]),
+        trigger('loadLogoText', [
+          state('startloadText', style({ transform: 'translateY(250%)' })),
+            transition('* => startloadText', [
+              style({transform: 'translateY(250%)'}),
+              animate('1s ease-in')
+            ])
+      ]),
     ]
 })
 
@@ -75,6 +61,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     toggle(){
         this.isOpen = !this.isOpen;
     }
+
+    logo:Logo = new Logo();
+    logoText:LogoText = new LogoText();
 
     date: {year: number, month: number};
     model: NgbDateStruct;
@@ -126,15 +115,25 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
 
     startTimmer(){
-        console.log('進入',document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')));
-        this.interval = setInterval(() => {
-            if(Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p'))) > 200) {
-                console.log('進到!');
-                document.getElementById('logo').style.width = (Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')))-5).toString()+'px';
-            } 
-            // else {
-            //   this.timeLeft = 60;
-            // }
-        },10)
+        // console.log('進入',document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')));
+        // this.interval = setInterval(() => {
+        //     if(Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p'))) > 200) {
+        //         console.log('進到!');
+        //         document.getElementById('logo').style.width = (Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')))-5).toString()+'px';
+        //     } 
+        //     // else {
+        //     //   this.timeLeft = 60;
+        //     // }
+        // },10)
     }
+
+    loadLogo(){
+      console.log('z-index:',document.getElementById('logo').style);
+      this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
+      console.log('狀態2:',this.logo.state);
+  }
+
+  loadLogoText(){
+    this.logoText.state = this.logoText.state === 'init' ? 'startloadText' : 'init';
+  }
 }
