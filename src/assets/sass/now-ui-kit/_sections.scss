@@ -64,6 +64,28 @@
             max-width: 880px;
         }
     }
+    .containerlogo{
+        height: 100%;
+        z-index: 1;
+        text-align: center;
+        position: relative;
+
+        > .content-centerl{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            -ms-transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+
+            text-align: center;
+            padding: 0 15px;
+            color: #FFFFFF;
+            width: 100%;
+            max-width: 880px;
+        }
+    }
     .category,
     .description{
         color: $opacity-5;

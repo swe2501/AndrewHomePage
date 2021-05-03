@@ -27,12 +27,16 @@ import { LogoText } from './logoText.service';
     `],
     animations: [
         trigger('loadLogo', [
-            state('startload', style({ height:'120px', width:'120px'})),
+            state('startload', style({ height: '120px', width: '120px', position : 'relative',
+            left: '120px'})),
               transition('* => startload', [
-                style({height:'700px',width:'700px'}),
+                style({height : '700px', width : '700px', position : 'relative',
+                left: '120px'}),
                 animate('2s ease', style({
-                  width:'120px',
-                  height:'120px'
+                  width : '122px',
+                  height : '122px',
+                  position : 'relative',
+                  left: '120px'
                 }))
               ])
         ]),
