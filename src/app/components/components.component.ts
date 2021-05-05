@@ -26,27 +26,27 @@ import { LogoText } from './logoText.service';
     }
     `],
     animations: [
-        trigger('loadLogo', [
-            state('startload', style({ height: '120px', width: '120px', position : 'relative',
-            left: '120px'})),
-              transition('* => startload', [
-                style({height : '700px', width : '700px', position : 'relative',
-                left: '120px'}),
-                animate('2s ease', style({
-                  width : '122px',
-                  height : '122px',
-                  position : 'relative',
-                  left: '120px'
-                }))
-              ])
-        ]),
-        trigger('loadLogoText', [
-          state('startloadText', style({ transform: 'translateY(250%)' })),
-            transition('* => startloadText', [
-              style({transform: 'translateY(250%)'}),
-              animate('1s ease-in')
-            ])
-      ]),
+      //   trigger('loadLogo', [
+      //       state('startload', style({ height: '120px', width: '120px', position : 'relative',
+      //       left: '120px'})),
+      //         transition('* => startload', [
+      //           style({height : '700px', width : '700px', position : 'relative',
+      //           left: '120px'}),
+      //           animate('2s ease', style({
+      //             width : '122px',
+      //             height : '122px',
+      //             position : 'relative',
+      //             left: '120px'
+      //           }))
+      //         ])
+      //   ]),
+      //   trigger('loadLogoText', [
+      //     state('startloadText', style({ transform: 'translateY(250%)' })),
+      //       transition('* => startloadText', [
+      //         style({transform: 'translateY(250%)'}),
+      //         animate('1s ease-in')
+      //       ])
+      // ]),
     ]
 })
 
@@ -59,6 +59,10 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     page2 = 3;
     focus;
     focus2;
+
+    initWidth = document.body.clientWidth;
+    initHeight = window.screen.height;
+    alreadyLoad = false;
 
     isOpen = true;
     interval;
@@ -118,26 +122,59 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         body.classList.remove('index-page');
     }
 
-    startTimmer(){
-        // console.log('進入',document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')));
-        // this.interval = setInterval(() => {
-        //     if(Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p'))) > 200) {
-        //         console.log('進到!');
-        //         document.getElementById('logo').style.width = (Number(document.getElementById('logo').style.width.substr(0,document.getElementById('logo').style.width.indexOf('p')))-5).toString()+'px';
-        //     } 
-        //     // else {
-        //     //   this.timeLeft = 60;
-        //     // }
-        // },10)
+    loadLogo(){
+      // document.getElementById('logo').style.width = '1000px';
+      // console.log('z-index:',document.getElementById('logo').style);
+      // this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
+      // console.log('狀態2:',this.logo.state);
+
+      if(this.alreadyLoad){
+        this.alreadyLoad =false;
+        return;
+      }
+      var initOffsetY = (-this.initHeight/2)+75;
+      document.getElementById('logo').style.width = this.initWidth+'px';
+      document.getElementById('logo').style.left = '0px';
+      document.getElementById('logo').style.top = initOffsetY+'px';
+
+      var culmilativeWidth = 0;
+      var variationWidth = this.initWidth;
+      var culmilativeOffsetY = initOffsetY;
+      this.interval = setInterval(() => {
+        if(variationWidth < 104){
+          document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');//到適當大小後，換成有陰影的logo
+          this.alreadyLoad = true;
+          return
+        }
+        variationWidth -= 6;
+        culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
+        console.log('culmilativeOffsetY:',culmilativeOffsetY);
+        culmilativeWidth = this.initWidth - variationWidth;
+        document.getElementById('logo').style.width = variationWidth + 'px';
+        document.getElementById('logo').style.left = culmilativeWidth/2+'px';
+        document.getElementById('logo').style.right = culmilativeWidth/2+'px';
+        document.getElementById('logo').style.top = culmilativeOffsetY+'px';
+      },4)
     }
 
-    loadLogo(){
-      console.log('z-index:',document.getElementById('logo').style);
-      this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
-      console.log('狀態2:',this.logo.state);
-  }
+    loadLogoText(){
+      document.getElementById('logoText').style.top = '52px';
 
-  loadLogoText(){
-    this.logoText.state = this.logoText.state === 'init' ? 'startloadText' : 'init';
-  }
+      var initanimationOffsetX = (this.initWidth/2)-40;
+      document.getElementById('logoText').style.left = initanimationOffsetX+'px';
+
+      var initOffsetX = initanimationOffsetX;
+      var culmilativeOffsetX = 0;
+      var variationX ;
+      this.interval = setInterval(() => {
+        if(culmilativeOffsetX > 80){
+          // document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');
+          this.alreadyLoad = true;
+          return
+        }
+        culmilativeOffsetX += 1;
+        variationX = initOffsetX - culmilativeOffsetX
+        document.getElementById('logoText').style.left = variationX+'px';
+      },12)
+    }
 }
