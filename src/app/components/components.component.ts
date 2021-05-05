@@ -11,11 +11,9 @@ import {
     animateChild
     // ...
   } from '@angular/animations';
-import { Logo } from './Logo.service';
 import * as Rellax from 'rellax';
 import { Input } from '@angular/core';
 import { translate } from '@angular/localize/src/utils';
-import { LogoText } from './logoText.service';
 
 @Component({
     selector: 'ngbd-carousel-basic',
@@ -27,23 +25,19 @@ import { LogoText } from './logoText.service';
     `],
     animations: [
       //   trigger('loadLogo', [
-      //       state('startload', style({ height: '120px', width: '120px', position : 'relative',
-      //       left: '120px'})),
-      //         transition('* => startload', [
-      //           style({height : '700px', width : '700px', position : 'relative',
-      //           left: '120px'}),
-      //           animate('2s ease', style({
-      //             width : '122px',
-      //             height : '122px',
-      //             position : 'relative',
-      //             left: '120px'
-      //           }))
-      //         ])
+      //     state('load', style({ height:'120px', width:'120px', transform: 'translateX(0%)'})),
+      //       transition('void => *', [
+      //         style({height:'100%',width:'100%'}),
+      //         animate('2s ease', style({
+      //           width:'120px',
+      //           height:'120px'
+      //         }))
+      //       ])
       //   ]),
       //   trigger('loadLogoText', [
-      //     state('startloadText', style({ transform: 'translateY(250%)' })),
-      //       transition('* => startloadText', [
-      //         style({transform: 'translateY(250%)'}),
+      //     state('load', style({ transform: 'translateY(400%), translateX(100%)' })),
+      //       transition('void => *', [
+      //         style({transform: 'translateY(400%), translateX(100%)'}),
       //         animate('1s ease-in')
       //       ])
       // ]),
@@ -60,8 +54,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     focus;
     focus2;
 
-    initWidth = document.body.clientWidth;
-    initHeight = window.screen.height;
+    initWidth = document.body.clientWidth;//螢幕寬度
+    initHeight = window.screen.height;//螢幕高度
     alreadyLoad = false;
 
     isOpen = true;
@@ -69,9 +63,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     toggle(){
         this.isOpen = !this.isOpen;
     }
-
-    logo:Logo = new Logo();
-    logoText:LogoText = new LogoText();
 
     date: {year: number, month: number};
     model: NgbDateStruct;
@@ -121,7 +112,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('index-page');
     }
-
+    
     loadLogo(){
       // document.getElementById('logo').style.width = '1000px';
       // console.log('z-index:',document.getElementById('logo').style);
