@@ -106,6 +106,13 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
 
     }
+
+    ngAfterViewInit(){
+      console.log('寬度:',document.body.clientWidth);
+      this.loadLogo();
+      this.loadLogoText();
+    }
+
     ngOnDestroy(){
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
