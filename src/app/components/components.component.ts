@@ -56,7 +56,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
     initWidth = document.body.clientWidth;//螢幕寬度
     initHeight = window.screen.height;//螢幕高度
-    alreadyLoad = false;
 
     isOpen = true;
     interval;
@@ -126,10 +125,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       // this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
       // console.log('狀態2:',this.logo.state);
 
-      if(this.alreadyLoad){
-        this.alreadyLoad =false;
-        return;
-      }
+      // if(document.getElementById('logo')){
+      //   return;
+      // }
+
+      // console.log('是什麼:',document.getElementById('logo'));
       var initOffsetY = (-this.initHeight/2)+75;
       document.getElementById('logo').style.width = this.initWidth+'px';
       document.getElementById('logo').style.left = '0px';
@@ -138,15 +138,15 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       var culmilativeWidth = 0;
       var variationWidth = this.initWidth;
       var culmilativeOffsetY = initOffsetY;
-      this.interval = setInterval(() => {
+      var interval = setInterval(() => {
         if(variationWidth < 104){
+          console.log('是否停了');
           document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');//到適當大小後，換成有陰影的logo
-          this.alreadyLoad = true;
+          clearInterval(interval);
           return
         }
         variationWidth -= 6;
         culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
-        console.log('culmilativeOffsetY:',culmilativeOffsetY);
         culmilativeWidth = this.initWidth - variationWidth;
         document.getElementById('logo').style.width = variationWidth + 'px';
         document.getElementById('logo').style.left = culmilativeWidth/2+'px';
@@ -164,10 +164,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       var initOffsetX = initanimationOffsetX;
       var culmilativeOffsetX = 0;
       var variationX ;
-      this.interval = setInterval(() => {
+      var interval = setInterval(() => {
         if(culmilativeOffsetX > 80){
+          console.log('還在跑')
           // document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');
-          this.alreadyLoad = true;
+          clearInterval(interval);
           return
         }
         culmilativeOffsetX += 1;
