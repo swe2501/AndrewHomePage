@@ -140,7 +140,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       var culmilativeOffsetY = initOffsetY;
       var interval = setInterval(() => {
         if(variationWidth < 104){
-          console.log('是否停了');
           document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');//到適當大小後，換成有陰影的logo
           clearInterval(interval);
           return
@@ -166,7 +165,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       var variationX ;
       var interval = setInterval(() => {
         if(culmilativeOffsetX > 80){
-          console.log('還在跑')
           // document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');
           clearInterval(interval);
           return
