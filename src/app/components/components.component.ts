@@ -55,7 +55,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     focus2;
 
     initWidth = document.body.clientWidth;//螢幕寬度
-    initHeight = window.screen.height;//螢幕高度
+    initHeight = window.screen.availHeight//螢幕高度
 
     isOpen = true;
     interval;
@@ -120,6 +120,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
     
     loadLogo(){
+      console.log('document.body.clientHeight:',document.body.clientHeight);
+      console.log('window.screen.availHeight:',window.screen.availHeight);
       // document.getElementById('logo').style.width = '1000px';
       // console.log('z-index:',document.getElementById('logo').style);
       // this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
@@ -144,8 +146,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           clearInterval(interval);
           return
         }
-        variationWidth -= 6;
-        culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
+        variationWidth -= (this.initWidth-104)/240;
+        // culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
+        culmilativeOffsetY += (this.initHeight/3)/240; 
         culmilativeWidth = this.initWidth - variationWidth;
         document.getElementById('logo').style.width = variationWidth + 'px';
         document.getElementById('logo').style.left = culmilativeWidth/2+'px';
