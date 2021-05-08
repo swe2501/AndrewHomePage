@@ -147,8 +147,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           return
         }
         variationWidth -= (this.initWidth-104)/240;
-        // culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
-        culmilativeOffsetY += (3*this.initHeight/7)/240; 
+        // culmilativeOffsetY += (3*this.initHeight/7)/240; 
+        culmilativeOffsetY += ((this.initHeight/2)-104+52-10)/240;
         culmilativeWidth = this.initWidth - variationWidth;
         document.getElementById('logo').style.width = variationWidth + 'px';
         document.getElementById('logo').style.left = culmilativeWidth/2+'px';
