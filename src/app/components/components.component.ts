@@ -132,7 +132,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       // }
 
       // console.log('是什麼:',document.getElementById('logo'));
-      var initOffsetY = (-this.initHeight/2)+75;
+      var initOffsetY = (-this.initHeight/2);
       document.getElementById('logo').style.width = this.initWidth+'px';
       document.getElementById('logo').style.left = '0px';
       document.getElementById('logo').style.top = initOffsetY+'px';
@@ -148,7 +148,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         }
         variationWidth -= (this.initWidth-104)/240;
         // culmilativeOffsetY += (((this.initHeight+6300)/2))/(this.initWidth-104)/2;
-        culmilativeOffsetY += (this.initHeight/3)/240; 
+        culmilativeOffsetY += (3*this.initHeight/7)/240; 
         culmilativeWidth = this.initWidth - variationWidth;
         document.getElementById('logo').style.width = variationWidth + 'px';
         document.getElementById('logo').style.left = culmilativeWidth/2+'px';
