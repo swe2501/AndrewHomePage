@@ -29,7 +29,7 @@ import { translate } from '@angular/localize/src/utils';
           state('init', style({ opacity: 1 })),
             transition('void => *', [
               style({opacity: 0}),
-              animate('3s ease', style({
+              animate('3.1s ease', style({
               }))
             ])
         ]),

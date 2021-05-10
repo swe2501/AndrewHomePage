@@ -13,9 +13,9 @@ import { NavbarService } from './navbar.service';
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
     animations: [
-        trigger('loadNavbar', [
-          state('init', style({ opacity: 1 })),
-            transition('void => *', [
+        trigger('trigerNavbarShow', [
+          state('0', style({ opacity: 1 })),
+            transition('* => *', [
               style({opacity: 0}),
               animate('3s ease', style({
               }))
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    @Input() navbarState: NavbarService;
+    navbarState: NavbarService = new NavbarService();
 
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
