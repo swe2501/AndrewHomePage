@@ -1,0 +1,23 @@
+@font-face {
+    font-family: MyAzonix;
+    src: local("Azonix"),
+      url(../../wordStyle/azonix/Azonix.otf);
+    font-weight: bold;
+  };
+
+.logo{
+  position: absolute;
+}
+
+.slogon-h1{
+    font-family: 'MyAzonix';
+}
+
+#logo{
+  z-index: 11; 
+  
+}
+
+#logoText{
+  z-index: 12; 
+}

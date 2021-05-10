@@ -1,14 +1,33 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { trigger } from '@angular/animations';
+import { state } from '@angular/animations';
+import { style } from '@angular/animations';
+import { transition } from '@angular/animations';
+import { animate } from '@angular/animations';
+import { Input } from '@angular/core';
+import { NavbarService } from './navbar.service';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.scss'],
+    animations: [
+        trigger('loadNavbar', [
+          state('init', style({ opacity: 1 })),
+            transition('void => *', [
+              style({opacity: 0}),
+              animate('3s ease', style({
+              }))
+            ])
+        ]),
+    ]
 })
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+
+    @Input() navbarState: NavbarService;
 
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;

@@ -1,3 +1,7 @@
+<head>
+  <meta charset="utf-8" />
+  <link href="component.component.scss" rel="stylesheet">
+</head>
 <div class="wrapper">
   <div class="page-header clear-filter" filter-color="blue">
     <div
@@ -7,11 +11,12 @@
     ></div>
     <div class="container" style="max-width: 100%; max-height: 100%; padding: 0px;">
       <div class="content-center" style="position: relative; max-width: 100%; max-height: 100%; padding: 0px;">
-        <img src="assets/img/RangerLogo/首頁/logo px.png" id = "logo" style="z-index: 4; position: absolute;">
-        <img src="assets/img/RangerLogo/首頁/RANGER 1.png" id = "logoText" style="z-index: 5; position: absolute;">
-        <!-- <h1 class="h1-seo">Andrew Rangers</h1>
-        <h3>We Want Your For Our Rangers</h3> -->
-        
+        <img src="assets/img/RangerLogo/首頁/logo px.png" id = "logo" class = "logo">
+        <img src="assets/img/RangerLogo/首頁/RANGER 1.png" id = "logoText" class = "logo">
+        <!-- <h2 class = "logoText" id = "logoText1" style="z-index: 12; position: absolute;"> R A N G E R </h2> -->
+        <!-- <h5 class="h5-seo slogon-h1 logo" id = "slogon-h1">安德魯網頁設計團隊</h5> -->
+        <h6 class="slogon-h1 logo" id = "slogon-h1" [@loadSlogon] = "'init'">安德魯網頁設計團隊</h6>
+        <h6 class="slogon-h1 logo" id = "slogon-h2" [@loadSlogon] = "'init'">GETTING YOUR WEBSITE RIGHT MAKES EVERYTHING ELSE EASIER</h6>       
       </div>
     </div>
   </div>

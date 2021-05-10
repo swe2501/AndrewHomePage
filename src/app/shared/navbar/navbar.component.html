@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent" color-on-scroll="500" id = "navbar" [@loadNavbar] = "'init'">
     <div class="container">
       <!-- <div class="dropdown button-dropdown">
         <div ngbDropdown>
@@ -20,7 +20,7 @@
          </div>
       </div> -->
         <div class="navbar-translate">
-            <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Ready To Go?">
+            <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Ready To Go?" (click) = "navbarState.toggleState()">
                 Andrew Rangers
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">

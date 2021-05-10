@@ -23,17 +23,16 @@ import { translate } from '@angular/localize/src/utils';
         margin-top: 5rem;
     }
     `],
+    styleUrls: ['./component.component.scss'],
     animations: [
-      //   trigger('loadLogo', [
-      //     state('load', style({ height:'120px', width:'120px', transform: 'translateX(0%)'})),
-      //       transition('void => *', [
-      //         style({height:'100%',width:'100%'}),
-      //         animate('2s ease', style({
-      //           width:'120px',
-      //           height:'120px'
-      //         }))
-      //       ])
-      //   ]),
+        trigger('loadSlogon', [
+          state('init', style({ opacity: 1 })),
+            transition('void => *', [
+              style({opacity: 0}),
+              animate('3s ease', style({
+              }))
+            ])
+        ]),
       //   trigger('loadLogoText', [
       //     state('load', style({ transform: 'translateY(400%), translateX(100%)' })),
       //       transition('void => *', [
@@ -108,6 +107,13 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
     ngAfterViewInit(){
       console.log('寬度:',document.body.clientWidth);
+      // console.log('navbar:',document.querySelector('#navbar').setAttribute('hidden','true'));
+      // console.log('document.getElementById("logoText-h1"):',document.getElementById("logoText-h1"));
+      document.getElementById("slogon-h1").style.top = '104px';
+      document.getElementById("slogon-h1").style.left = (this.initWidth/2)-(144/2)+'px';
+
+      document.getElementById("slogon-h2").style.top = '156px';
+      document.getElementById("slogon-h2").style.left = (this.initWidth/2)-(604.362/2)+'px';
       this.loadLogo();
       this.loadLogoText();
     }
@@ -162,6 +168,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
       var initanimationOffsetX = (this.initWidth/2)-40;
       document.getElementById('logoText').style.left = initanimationOffsetX+'px';
+      // document.getElementById('logoText1').style.left = initanimationOffsetX+'px';
 
       var initOffsetX = initanimationOffsetX;
       var culmilativeOffsetX = 0;
@@ -175,6 +182,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         culmilativeOffsetX += 1;
         variationX = initOffsetX - culmilativeOffsetX
         document.getElementById('logoText').style.left = variationX+'px';
+        // document.getElementById('logoText1').style.left = variationX+'px';
       },12)
     }
 }
