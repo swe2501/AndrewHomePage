@@ -5,6 +5,19 @@
     font-weight: bold;
   };
 
+#logo-container{
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0px;
+}
+
+#content-center{
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0px;
+}
+
 .logo{
   position: absolute;
 }

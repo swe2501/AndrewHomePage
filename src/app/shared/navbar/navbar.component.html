@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent" color-on-scroll="500" id = "navbar" [@trigerNavbarShow] = "navbarState.state">
+<nav class="navbar navbar-expand-lg bg-black fixed-top navbar-transparent" color-on-scroll="500" id = "navbar" [@trigerNavbarShow] = "navbarService.state">
     <div class="container">
       <!-- <div class="dropdown button-dropdown">
         <div ngbDropdown>
@@ -20,9 +20,9 @@
          </div>
       </div> -->
         <div class="navbar-translate">
-            <a class="navbar-brand" [routerLink]="['/index']" placement="bottom" ngbTooltip="Ready To Go?" (click) = "navbarState.toggleState()">
-                Andrew Rangers
-            </a>
+          <a class="navbar-brand nav-logo-style" [routerLink]="['/index']" placement="bottom" ngbTooltip="Ready To Go?" (click) = "navbarService.toggleState()">
+            <img src="assets/img/RangerLogo/首頁/RANGER.png" >
+          </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -31,25 +31,35 @@
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link"(click)="toLinks('carousel')" target="_self">
-                      <i class="now-ui-icons business_bulb-63"></i>
-                      <p>精神理念</p>
+              <li class="nav-item" (mouseenter)="showNavImg('0')"  (mouseleave)="hideNavImg('0')">
+                  <a class="nav-link" (click)="toLinks('carousel')" target="_self">
+                      <img src="../../../assets/img/RangerLogo/成員介紹/web logo 1.png" style="width: 15px; height: 15px; opacity: 0;" id = "navImg0">
+                      <!-- <i class="now-ui-icons business_bulb-63"></i> -->
+                      &nbsp;<p style="cursor:pointer;letter-spacing:2.5px" class="logoItemContent">關於RANGER</p>
                   </a>
               </li>
-                <li class="nav-item">
-                    <a class="nav-link"  (click)="toLinks('ourProjects')" target="_self">
-                      <i class="now-ui-icons files_paper"></i>
-                      <p>Projects</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" target="_parent" (click)="toLinks('aboutRangers')">
-                        <i class="now-ui-icons design-2_html5"></i>
-                        <p>About Rangers</p>
-                    </a>
-                </li>
-                <li class="nav-item">
+              <li class="nav-item" (mouseenter)="showNavImg('1')"  (mouseleave)="hideNavImg('1')">
+                  <a class="nav-link"  (click)="toLinks('ourProjects')" target="_self">
+                    <img src="../../../assets/img/RangerLogo/成員介紹/web logo 1.png" style="width: 15px; height: 15px; opacity: 0;" id = "navImg1">
+                    <!-- <i class="now-ui-icons files_paper"></i> -->
+                    &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">作品分享</p>
+                  </a>
+              </li>
+              <li class="nav-item" (mouseenter)="showNavImg('2')"  (mouseleave)="hideNavImg('2')">
+                  <a class="nav-link" target="_parent" (click)="toLinks('aboutRangers')">
+                    <img src="../../../assets/img/RangerLogo/成員介紹/web logo 1.png" style="width: 15px; height: 15px; opacity: 0;" id = "navImg2">
+                    <!-- <i class="now-ui-icons design-2_html5"></i> -->
+                    &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">團隊介紹</p>
+                  </a>
+              </li>
+              <li class="nav-item" (mouseenter)="showNavImg('3')"  (mouseleave)="hideNavImg('3')">
+                <a class="nav-link" target="_parent" (click)="toLinks('aboutRangers')">
+                  <img src="../../../assets/img/RangerLogo/成員介紹/web logo 1.png" style="width: 15px; height: 15px; opacity: 0;" id = "navImg3">
+                  <!-- <i class="now-ui-icons design-2_html5"></i> -->
+                  &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">聯絡我們</p>
+                </a>
+              </li>
+                <!-- <li class="nav-item">
                   <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank">
                     <i class="fab fa-twitter"></i>
                     <p class="d-lg-none d-xl-none">Twitter</p>
@@ -66,7 +76,7 @@
                     <i class="fab fa-instagram"></i>
                     <p class="d-lg-none d-xl-none">Instagram</p>
                   </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

@@ -1,3 +1,10 @@
+@font-face {
+    font-family: MyAzonix;
+    src: local("Azonix"),
+      url(../../wordStyle/azonix/Azonix.otf);
+    font-weight:100;
+};
+
 .navbar{
     padding-top: $navbar-padding-base;
     padding-bottom: $navbar-padding-base;
@@ -17,6 +24,7 @@
         display: inline-block;
         margin: 0;
         line-height: 21px;
+        font-family: 'MyAzonix';
     }
 
     .navbar-nav{
@@ -130,11 +138,20 @@
         }
     }
 
+    .logoItemContent{
+        color : white !important;
+    }
+
     &.navbar-transparent{
         background-color: $transparent-bg !important;
+        // background-color: black !important;
         box-shadow: none;
         color: $white-color;
         padding-top: 20px;
+    }
+
+    &.bg-black{
+        background-color: black;
     }
 
     &.bg-white:not(.navbar-transparent){
@@ -190,4 +207,9 @@
 
 .bg-white{
     background-color: $white-color !important;
+}
+
+.nav-logo-style{
+    font-family: 'MyAzonix';
+    font-size:large;
 }

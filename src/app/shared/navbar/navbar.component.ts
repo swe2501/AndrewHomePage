@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    navbarState: NavbarService = new NavbarService();
+    navbarService: NavbarService = new NavbarService();
 
     constructor(public location: Location, private element : ElementRef) {
         this.sidebarVisible = false;
@@ -37,6 +37,24 @@ export class NavbarComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
+
+    // ngAfterViewInit(){
+    // }
+
+    showNavImg(index){
+        console.log('show:', document.getElementById('navImg'+index));
+        // document.getElementById('navImg'+index).style.visibility = 'visible';
+        document.getElementById('navImg'+index).style.opacity = '1';
+        document.getElementById('navImg'+index).style.transition = '0.3s'
+    }
+
+    hideNavImg(index){
+        console.log('hidden:', document.getElementById('navImg'+index));
+        // document.getElementById('navImg'+index).style.visibility = 'hidden';
+        document.getElementById('navImg'+index).style.opacity = '0';
+        document.getElementById('navImg'+index).style.transition = '0.3s'
+    }
+    
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
