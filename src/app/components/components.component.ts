@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, OnDestroy, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Renderer2, OnDestroy, ViewChildren, QueryList, HostListener } from '@angular/core';
 import { NgbDateStruct, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -53,8 +53,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     focus;
     focus2;
 
-    initWidth = document.body.clientWidth;//螢幕寬度
-    initHeight = window.screen.availHeight//螢幕高度
+    isLogoAnimationFinish = false;
+    isLogoTextAnimationFinish = false;
+
+    initWidth = window.innerWidth;//螢幕寬度
+    initHeight = window.innerHeight//螢幕高度
 
     isOpen = true;
     interval;
@@ -125,19 +128,25 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         body.classList.remove('index-page');
     }
     
+    @HostListener('window:resize' , ['$event'])
+    onResize(event){
+      var browserWidth = window.innerWidth;//螢幕寬度
+      var logoTag = document.getElementById('logo');
+      var widthOflogoTag = Number(logoTag.style.width.substr(0,logoTag.style.width.indexOf('px')));
+      var logoTextTag = document.getElementById('logoText');
+      var widthOflogoTextTag = Number(logoTextTag.style.width.substr(0,logoTextTag.style.width.indexOf('px')));
+      var logoH1 = document.getElementById('slogon-h1');
+      var widthOflogoH1 = logoH1.offsetWidth;
+      var logoH2 = document.getElementById('slogon-h2');
+      var widthOflogoH2 = logoH2.offsetWidth;
+      logoTag.style.left = (browserWidth/2)-(widthOflogoTag/2)+'px';
+      logoTextTag.style.left = (browserWidth/2)-(widthOflogoTextTag/2)+'px';
+      console.log('文字寬度:',logoH1.offsetWidth);
+      logoH1.style.left = (browserWidth/2)+'px';
+      logoH2.style.left = (browserWidth/2)-(widthOflogoH2/2)+'px';
+    }
+
     loadLogo(){
-      console.log('document.body.clientHeight:',document.body.clientHeight);
-      console.log('window.screen.availHeight:',window.screen.availHeight);
-      // document.getElementById('logo').style.width = '1000px';
-      // console.log('z-index:',document.getElementById('logo').style);
-      // this.logo.state = this.logo.state === 'init' ? 'startload' : 'init';
-      // console.log('狀態2:',this.logo.state);
-
-      // if(document.getElementById('logo')){
-      //   return;
-      // }
-
-      // console.log('是什麼:',document.getElementById('logo'));
       var initOffsetY = (-this.initHeight/2);
       document.getElementById('logo').style.width = this.initWidth+'px';
       document.getElementById('logo').style.left = '0px';
@@ -150,6 +159,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         if(variationWidth < 104){
           document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');//到適當大小後，換成有陰影的logo
           clearInterval(interval);
+          this.isLogoAnimationFinish = true;
           return
         }
         variationWidth -= (this.initWidth-104)/240;
@@ -165,7 +175,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
     loadLogoText(){
       document.getElementById('logoText').style.top = '52px';
-
+      document.getElementById('logoText').style.width = '241px';
       var initanimationOffsetX = (this.initWidth/2)-40;
       document.getElementById('logoText').style.left = initanimationOffsetX+'px';
       // document.getElementById('logoText1').style.left = initanimationOffsetX+'px';
@@ -177,6 +187,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         if(culmilativeOffsetX > 80){
           // document.getElementById('logo').setAttribute('src','assets/img/RangerLogo/首頁/web logo 1.png');
           clearInterval(interval);
+          this.isLogoTextAnimationFinish = true;
           return
         }
         culmilativeOffsetX += 1;
