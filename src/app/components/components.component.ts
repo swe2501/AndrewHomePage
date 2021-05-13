@@ -141,8 +141,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       var widthOflogoH2 = logoH2.offsetWidth;
       logoTag.style.left = (browserWidth/2)-(widthOflogoTag/2)+'px';
       logoTextTag.style.left = (browserWidth/2)-(widthOflogoTextTag/2)+'px';
-      console.log('文字寬度:',logoH1.offsetWidth);
-      logoH1.style.left = (browserWidth/2)+'px';
+      logoH1.style.left = (browserWidth/2)-(widthOflogoH1/2)+'px';
       logoH2.style.left = (browserWidth/2)-(widthOflogoH2/2)+'px';
     }
 
