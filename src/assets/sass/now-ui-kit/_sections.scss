@@ -93,7 +93,7 @@
 
     &.page-header-small{
         min-height: 60vh;
-        max-height: 440px;
+        max-height: 550px;
     }
 
     &:after,
@@ -117,6 +117,9 @@
     }
     &[filter-color="blue"]{
         @include linear-gradient(rgba(0, 66, 44, 0.6), rgba(0, 44, 44, 0.3));
+    }
+    &[filter-color="grey"]{
+        @include linear-gradient(rgba(255, 255, 255, 0.301), rgba(255, 255, 255, 0.3));
     }
     .container{
         z-index: 2;
