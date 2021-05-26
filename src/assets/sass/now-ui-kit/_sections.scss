@@ -318,7 +318,9 @@
         right: 12%;
     }
 }
-
+.images-to-icoin {
+    padding: 0 3rem;
+}
 
 [data-background-color="orange"]{
     background-color: $orange-bg;
@@ -326,7 +328,9 @@
 [data-background-color="black"]{
     background-color: $black-color;
 }
-
+[data-background-color="dark"]{
+    background-color: rgba(0,0,0,0.9);
+}
 [data-background-color]{
     color: $white-color;
 

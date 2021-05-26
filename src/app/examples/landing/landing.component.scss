@@ -1,0 +1,38 @@
+.landing-first-hr hr {
+  text-align: center;
+  line-height: 0px;
+  background: darkgoldenrod;
+}
+
+.landing-first-hr hr:after {
+  content: "　我們的服務/OUR Service　";
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: darkgoldenrod;
+  background: #2c2c2c ;
+  font-family: 'MyAzonix';
+  z-index: 2;
+}
+.landing-second-hr hr {
+    text-align: center;
+    line-height: 0px;
+    background: darkgoldenrod;
+  }
+  
+  .landing-second-hr hr:after {
+    content: "　專案流程/Process　";
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: darkgoldenrod;
+    background: #2c2c2c ;
+    font-family: 'MyAzonix';
+    z-index: 2;
+  }
+  
+.col-process {
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+.landing-title-color {
+    color: darkgoldenrod;
+}
