@@ -211,11 +211,89 @@
             }
         }
     }
-
-    .button-container{
-        text-align: center;
-        margin-top: -106px;
-    }
+    @media screen and (min-width:280px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -100px;
+        }
+      }
+      @media screen and (min-width:320px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -150px;
+          margin-bottom: -250px;
+        }
+      }
+      @media screen and (min-width:360px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -220px;
+          margin-bottom: -250px;
+        }
+      }
+      @media screen and (min-width:411px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -220px;
+          margin-bottom: -300px;
+        }
+      }
+      @media screen and (min-width:500px)and (min-height:712px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -230px;
+          margin-bottom: -300px;
+        }
+      }
+      @media screen and (min-width:768px) and (min-height:712px) { 
+        .button-container{
+            text-align: center;
+            margin-top: -180px;
+            margin-bottom: -234px;
+          }
+      }
+      @media screen and (min-width:768px) and (min-height:1020px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -150px;
+          margin-bottom: -265px;
+        }
+      }
+      @media screen and (min-width:1024px) and (min-height:712px) { 
+        .button-container{
+            text-align: center;
+            margin-top: -180px;
+            margin-bottom: -250px;
+          }
+      }
+      @media screen and (min-width:1024px) and (min-height:1300px)  { 
+        .button-container{
+          text-align: center;
+          margin-top: -180px;
+          margin-bottom: -330px;
+        }
+      }
+      @media screen and (min-width:1366px) and (min-height:712px) { 
+        .button-container{
+            text-align: center;
+            margin-top: -180px;
+            margin-bottom: -250px;
+          }
+      }
+      @media screen and (min-width:1366px) and (min-height:1020px)  { 
+        .button-container{
+          text-align: center;
+          margin-top: -180px;
+          margin-bottom: -290px;
+        }
+      }
+      @media screen and (min-width:1500px) { 
+        .button-container{
+          text-align: center;
+          margin-top: -250px;
+          margin-bottom: -320px;
+        }
+      }
 
     .collections{
         img{

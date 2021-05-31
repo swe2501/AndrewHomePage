@@ -1,3 +1,4 @@
+import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
 
@@ -14,7 +15,8 @@ export class TeamComponent implements OnInit {
     data : Date = new Date();
     focus;
     focus1;
-
+    initWidth = window.innerWidth;//螢幕寬度 
+    initHeight = window.innerHeight//螢幕高度
     constructor() { }
 
     ngOnInit() {
@@ -25,11 +27,18 @@ export class TeamComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
     }
+
+    ngAfterViewInit(){
+      // document.getElementById('teamHeader').style.maxHeight = '100vh';
+      // document.getElementById('teamHeaderText').style.top = -this.initHeight/5+'px';
+      console.log('高度喔:',this.initHeight);
+      console.log('寬度喔:',this.initWidth);
+    }
+    
     ngOnDestroy(){
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('team-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
     }
-
 }

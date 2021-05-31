@@ -1,0 +1,186 @@
+@font-face {
+  font-family: MyAzonix;
+  src: local("Azonix"), url(../../wordStyle/azonix/Azonix.otf);
+}
+
+.team-page{
+  .page-header{
+      &:before{
+          background-color: rgba(0,0,0,.4);
+      }
+  }
+  @media screen and (min-width:520px)and (min-height:712px) { 
+    #teamHeaderText{
+      top:-200px;
+    }
+  }
+  @media screen and (min-width:520px) and (min-height:720px) { 
+    #teamHeaderText{
+      top:-155px;
+    }
+  }
+  .bottom{
+    .page-header{
+      height: 80vh;
+      &:after,
+      &:before{
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          display: block;
+          left: 0;
+          top: 0;
+          content: "";
+      }
+    }
+    @media screen and (min-width:320px) { 
+      .contact-icon-line, .contact-icon-facebook{
+        margin-right: 10px;
+      }
+      .contact-icon{
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+      .contact-text h4{
+        margin-top: 50px;
+      }
+    }
+    @media screen and (min-width:360px) { 
+      .page-header{
+        min-height: 60vh;
+        height: 60vh;
+      }
+      .contact-icon{
+        margin-bottom: 30px;
+        margin-top: 30px;
+      }
+      .contact-text h4{
+        margin-top: 50px;
+      }
+    }
+    @media screen and (min-width:411px) { 
+      .sharing-area {
+        height: 450px;
+      }
+      .contact-text h4{
+        margin-bottom: -90px;
+        margin-top: 150px; 
+      }
+      .page-header{
+        min-height: 80vh;
+        height: 80vh;
+      }
+      .contact-icon{
+        margin-top: 150px;
+      }
+    }
+    @media screen and (min-width:500px) { 
+      .sharing-area {
+        margin-top: 50px;
+      }
+      .contact-icon-line, .contact-icon-facebook{
+        margin-right: 80px;
+      }
+    }
+    @media screen and (min-width:768px) and (min-height:712px) { 
+      .page-header{
+        min-height: 70vh;
+        height: 70vh;
+      }
+      .sharing-area {
+        margin-top: 0px;
+      }
+    }
+    @media screen and (min-width:768px) and (min-height:1020px) { 
+      .page-header{
+        min-height: 50vh;
+        height: 50vh;
+      }
+      .sharing-area {
+        margin-top: 0px;
+      }
+    }
+    @media screen and (min-width:1024px) and (min-height:712px) { 
+      .page-header{
+        min-height: 80vh;
+        height: 80vh;
+      }
+      .sharing-area {
+        margin-top: -100px;
+      }
+    }
+    @media screen and (min-width:1024px) and (min-height:1300px) { 
+      .page-header{
+        min-height: 40vh;
+        height: 40vh;
+      }
+      .sharing-area {
+        margin-top: -100px;
+      }
+    }
+    @media screen and (min-width:1366px) and (min-height:712px) { 
+      .page-header{
+        min-height: 80vh;
+        height: 80vh;
+      }
+    }
+    @media screen and (min-width:1366px) and (min-height:1020px) { 
+      .page-header{
+        min-height: 60vh;
+        height: 60vh;
+      }
+    }
+    @media screen and (min-width:1500px) { 
+      .sharing-area {
+        margin-top: 50px;
+      }
+    }
+  }
+
+  .team-contain {
+    @media screen and (min-width:280px) { 
+      .expertiseBorderImg{
+        width: 250px;
+      }
+    }
+    @media screen and (min-width:320px) { 
+      .expertiseBorderImg{
+        width: 290px;
+      }
+    }
+    @media screen and (min-width:375px) { 
+      .expertiseBorderImg{
+        width: 345.2px;
+      }
+    }
+    @media screen and (min-width:414px) { 
+      .expertiseBorderImg{
+        width: 384.4px;
+      }
+    }
+    @media screen and (min-width:540px) { 
+      .expertiseBorderImg{
+        width: 410px;
+      }
+    }
+    @media screen and (min-width:768px) { 
+      .expertiseBorderImg{
+        width: 183.325px;
+      }
+    }
+    @media screen and (min-width:1024px) { 
+      .expertiseBorderImg{
+        width: 254.438px;
+      }
+    }
+    @media screen and (min-width:1500px) { 
+      .expertiseBorderImg{
+        width: 380px;
+      }
+    }
+  }
+}
+
+
+
