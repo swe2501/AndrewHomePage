@@ -9,14 +9,60 @@
           background-color: rgba(0,0,0,.4);
       }
   }
-  @media screen and (min-width:520px)and (min-height:712px) { 
+  @media screen and (min-width:280px) { 
     #teamHeaderText{
-      top:-200px;
+      top:-230px;
+      font-size: small;
+      line-height: 32px;
     }
   }
-  @media screen and (min-width:520px) and (min-height:720px) { 
+  @media screen and (min-width:320px) { 
     #teamHeaderText{
-      top:-155px;
+      top:-180px;
+      font-size: small;
+      line-height: 32px;
+    }
+  }
+  @media screen and (min-width:360px) { 
+    #teamHeaderText{
+      top:-210px;
+      font-size: small;
+      line-height: 38px;
+    }
+  }
+  @media screen and (min-width:375px) and (min-height:667px)  { 
+    #teamHeaderText{
+      top:-200px;
+      font-size:small;
+      line-height: 35px;
+    }
+  }
+  @media screen and (min-width:375px) and (min-height:812px)  { 
+    #teamHeaderText{
+      top:-270px;
+      font-size:medium;
+      line-height: 45px;
+    }
+  }
+  @media screen and (min-width:411px) { 
+    #teamHeaderText{
+      top:-230px;
+      font-size: small;
+      line-height: 50px;
+    }
+  }
+  @media screen and (min-width:540px) { 
+    #teamHeaderText{
+      top:-170px;
+      font-size: small;
+      line-height: 38px;
+    }
+  }
+  @media screen and (min-width:768px) { 
+    #teamHeaderText{
+      top:-170px;
+      font-size: large;
+      line-height: 55px;
     }
   }
   .bottom{
@@ -58,6 +104,7 @@
       .contact-text h4{
         margin-top: 50px;
       }
+      
     }
     @media screen and (min-width:411px) { 
       .sharing-area {
