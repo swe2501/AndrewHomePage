@@ -1,4 +1,3 @@
-import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
 
