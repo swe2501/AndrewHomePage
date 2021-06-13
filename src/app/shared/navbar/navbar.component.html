@@ -32,28 +32,28 @@
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item" (mouseenter)="showNavImg('0')"  (mouseleave)="hideNavImg('0')">
-                  <a class="nav-link" (click)="toLinks('carousel')" target="_self">
+                  <a class="nav-link" (click)="toLinks('carousel')" target="_self" [routerLink]="['/examples/landing']">
                       <img src="../../../assets/img/RangerLogo/首頁/Rectangle 5.png" class = "navImg" id = "navImg0">
                       <!-- <i class="now-ui-icons business_bulb-63"></i> -->
                       &nbsp;<p style="cursor:pointer;letter-spacing:2.5px" class="logoItemContent">關於RANGER</p>
                   </a>
               </li>
               <li class="nav-item" (mouseenter)="showNavImg('1')"  (mouseleave)="hideNavImg('1')">
-                  <a class="nav-link"  (click)="toLinks('ourProjects')" target="_self">
+                  <a class="nav-link"  (click)="toLinks('ourProjects')" target="_self" [routerLink]="['/examples/worksSharing']">
                     <img src="../../../assets/img/RangerLogo/首頁/Rectangle 5.png" class = "navImg" id = "navImg1">
                     <!-- <i class="now-ui-icons files_paper"></i> -->
                     &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">作品分享</p>
                   </a>
               </li>
               <li class="nav-item" (mouseenter)="showNavImg('2')"  (mouseleave)="hideNavImg('2')">
-                  <a class="nav-link" target="_parent" (click)="toLinks('aboutRangers')">
+                  <a class="nav-link" target="_self" (click)="toLinks('aboutRangers')" [routerLink]="['/examples/team']">
                     <img src="../../../assets/img/RangerLogo/首頁/Rectangle 5.png" class = "navImg" id = "navImg2">
                     <!-- <i class="now-ui-icons design-2_html5"></i> -->
                     &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">團隊介紹</p>
                   </a>
               </li>
               <li class="nav-item" (mouseenter)="showNavImg('3')"  (mouseleave)="hideNavImg('3')">
-                <a class="nav-link" target="_parent" (click)="toLinks('aboutRangers')">
+                <a class="nav-link" target="_self" (click)="toLinks('aboutRangers')">
                   <img src="../../../assets/img/RangerLogo/首頁/Rectangle 5.png" class = "navImg" id = "navImg3">
                   <!-- <i class="now-ui-icons design-2_html5"></i> -->
                   &nbsp;<p style="cursor:pointer;letter-spacing:2.5px"  class="logoItemContent">聯絡我們</p>
