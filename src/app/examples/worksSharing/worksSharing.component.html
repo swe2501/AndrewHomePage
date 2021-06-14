@@ -7,12 +7,20 @@
             <div class="col-md-10 ml-auto mr-auto">
               <div class="row collections">
                 <div class="col-md-6">
-                  <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 30.png" alt="" class="img-raised">
-                  <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 31.png" alt="" class="img-raised">
+                  <a [routerLink]="['/examples/landing']" >
+                    <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 30.png" alt="Image" class="img-raised" (mouseenter)="toBig($event)" (mouseleave)="toLittle($event)">
+                  </a>
+                  <a [routerLink]="['/examples/profile']">
+                    <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 31.png" alt="Image" class="img-raised" (mouseenter)="toBig($event)" (mouseleave)="toLittle($event)">
+                  </a>
                 </div>
                 <div class="col-md-6">
-                  <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 32.png" alt="" class="img-raised">
-                  <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 33.png" alt="" class="img-raised">
+                  <a [routerLink]="['/examples/landing']" >
+                    <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 32.png" alt="Image" class="img-raised" (mouseenter)="toBig($event)" (mouseleave)="toLittle($event)">
+                  </a>
+                  <a [routerLink]="['/examples/landing']" >
+                    <img src="../../../assets/img/RangerLogo/作品分享/Rectangle 33.png" alt="Image" class="img-raised" (mouseenter)="toBig($event)" (mouseleave)="toLittle($event)">
+                  </a>
                 </div>
               </div>
             </div>
