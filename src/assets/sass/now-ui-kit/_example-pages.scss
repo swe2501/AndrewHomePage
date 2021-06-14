@@ -307,6 +307,19 @@
     }
 }
 
+// style for the worksSharing page
+.worksSharing-page{
+
+    .button-container{
+        text-align: center;
+      }
+    .collections{
+        img{
+            // margin-bottom: 30px;
+        }
+    }
+}
+
 .section-full-page{
 
     &:after,

@@ -1,4 +1,3 @@
-import { HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
 
@@ -29,8 +28,8 @@ export class WorksSharingComponent implements OnInit {
     }
 
     ngAfterViewInit(){
-      // document.getElementById('teamHeader').style.maxHeight = '100vh';
-      // document.getElementById('teamHeaderText').style.top = -this.initHeight/5+'px';
+      // document.getElementById('worksSharingHeader').style.maxHeight = '100vh';
+      // document.getElementById('worksSharingHeaderText').style.top = -this.initHeight/5+'px';
       console.log('高度喔:',this.initHeight);
       console.log('寬度喔:',this.initWidth);
     }
@@ -40,5 +39,15 @@ export class WorksSharingComponent implements OnInit {
         body.classList.remove('worksSharing-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
+    }
+
+    toBig(event) {
+      event.target.style.transform = 'scale(1.08)';
+      event.target.style.transition = '0.7s';
+      console.log('event is ', event);
+      console.log('event.target is ', event.target);
+    }
+    toLittle(event) {
+      event.target.style.transform = 'scale(1)';
     }
 }
