@@ -95,9 +95,10 @@
     }
   }
   .bottom {
+    z-index: 2;
+    margin: 0px 40px 0px 40px;
     .page-header {
       height: 80vh;
-      margin: 0px 40px 0px 40px;
       &:after,
       &:before {
         position: absolute;
