@@ -45,6 +45,7 @@ import { translate } from '@angular/localize/src/utils';
 
 export class ComponentsComponent implements OnInit, OnDestroy {
     images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+    aboutRangerImage = "../../assets/img/RangerLogo/首頁/Rectangle 4.png"
     data : Date = new Date();
 
     page = 4;
@@ -195,4 +196,16 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         // document.getElementById('logoText1').style.left = variationX+'px';
       },12)
     }
+
+    toBig(event) {
+      event.target.style.transform = 'scale(1.08)';
+      event.target.style.transition = '0.7s';
+      console.log('event is ', event);
+      console.log('event.target is ', event.target);
+    }
+    
+    toLittle(event) {
+      event.target.style.transform = 'scale(1)';
+    }
+
 }
